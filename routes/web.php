@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,7 @@ Route::get('/', function () {
 Route::get('/page', function () {
     return view('page', ['name' => 'Eva']);
 });
+
+Route::get ('/post', [PostController::class,'index']);
+
+
