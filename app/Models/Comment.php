@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-
-use Database\Factories\PostFactory;
+use Database\Factories\CommentFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class Post extends Model
+class Comment extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -17,9 +15,8 @@ class Post extends Model
         'author_name',
     ];
 
-    protected static function newFactory(): PostFactory
-
-{
-    return new PostFactory();
+    protected static function newFactory(): CommentFactory
+    {
+        return new CommentFactory();
+    }
 }
-
