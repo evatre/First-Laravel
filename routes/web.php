@@ -21,8 +21,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/post', [PostController::class,'index']);
 
 Route::get('/comment', [CommentController::class,'index']);
+
 
