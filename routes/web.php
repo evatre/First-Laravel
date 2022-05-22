@@ -18,10 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/page', function () {
-    return view('page', ['name' => 'Eva']);
-});
 
-Route::get ('/post', [PostController::class,'index']);
-
+Route::get('/post', [PostController::class,'index']);
 

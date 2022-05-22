@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+
 class PostController extends Controller
 {
-    public function index()
-    {
-        //dd(1);
-        return view('page', ['name' => 'Eva']);
+    public function index() {
+        $post = Post::get();
+        dd($post);
     }
 }
