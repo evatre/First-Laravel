@@ -21,8 +21,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/post', [PostController::class,'index']);
+Route::controller(PostController::class)->group(function() {
+    Route::get('/posts', 'index')->name('posts.index');
+    Route::get('/posts/create', 'create');
+    Route::post('/posts/create', 'store')->name('posts.create');
+    Route::get('/posts/show/{post}', 'show')->name('posts.show');
+    Route::get('/posts/edit/{post}', 'edit')->name('posts.edit');
+    Route::post('/posts/edit/{post}', 'update');
+    Route::get('/delete/{post}', 'destroy')->name('posts.delete');
+});
 
-Route::get('/comment', [CommentController::class,'index']);
+Route::controller(CommentController::class)->group(function()
+{
+    Route::get('/comments', 'index')->name('comments.index');
+    Route::get('/comments/create', 'create');
+    Route::post('/comments/create', 'store')->name('comments.create');
+    Route::get('/comments/show/{comment}', 'show')->name('comments.show');
+    Route::get('/comments/edit/{comment}', 'edit')->name('comments.edit');
+    Route::post('/comments/edit/{comment}', 'update');
+    Route::get('/delete/{comment}', 'destroy')->name('comments.delete');
+});
 
 
