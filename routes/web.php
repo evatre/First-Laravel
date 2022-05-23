@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+
 use App\Http\Controllers\CommentController;
 
 
@@ -41,6 +42,4 @@ Route::controller(CommentController::class)->group(function()
     Route::get('/delete/{comment}', 'destroy')->name('comments.delete');
 });
 
-//Route::get('/post', [PostController::class,'index']);
 
-//Route::get('/comment', [CommentController::class,'index']);
