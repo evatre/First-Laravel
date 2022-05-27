@@ -6,6 +6,7 @@ namespace App\Models;
 use Database\Factories\PostFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 
 class Post extends Model
@@ -19,7 +20,13 @@ class Post extends Model
 
     protected static function newFactory(): PostFactory
 
-{
-    return new PostFactory();
+    {
+        return new PostFactory();
+    }
+
+    public function postcomments(): MorphMany   
+    {
+        return $this->morphMany(Postcomment::class, 'commentable');
+    }
 }
 
