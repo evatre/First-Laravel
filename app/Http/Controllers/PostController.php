@@ -23,11 +23,15 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        $requestData = $request->all();
+        $validatedData = $request->validate([
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
+        ]);
 
+        //dd($validated);         
         $post = new Post([
-            'title' => $requestData['title'],
-            'body' => $requestData['body'],
+            'title' => $validatedData['title'],
+            'body' => $validatedData['body'],
         ]);
         
         //$post->title = $requestData['title'];
@@ -53,10 +57,13 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
-        $requestData = $request->all();
+        $validated = $request->validate([
+            'title' => 'required |max:255',
+            'body' => 'required',
+        ]); 
 
-        $post->title = $requestData['title'];
-        $post->body =  $requestData['body']; 
+        $post->title = $validated['title'];
+        $post->body =  $validated['body']; 
         
         $post->save();
 

@@ -23,7 +23,11 @@ class CommentController extends Controller
 
     public function store(Request $request)
     {
-        $requestData = $request->all();
+        $requestData = $request->All();
+        //$validated = $request->validate([
+          //  'title' => 'required',
+            //'body' => 'required',
+        //]);
 
         $comment = new Comment([
             'title' => $requestData['title'],
