@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostCommentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +48,3 @@ Route::controller(PostCommentController::class)->group(function()
     Route::post('/postcomments/store', 'store')->name('postcomments.store');
 
 });
-
