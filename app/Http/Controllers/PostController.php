@@ -26,16 +26,15 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|unique:posts|max:255',
             'body' => 'required',
+            'author_name' => 'nullable',
         ]);
-
-        //dd($validated);         
+      
         $post = new Post([
             'title' => $validatedData['title'],
             'body' => $validatedData['body'],
+            'author_name' => $validatedData['author_name'],
         ]);
         
-        //$post->title = $requestData['title'];
-        //$post->body = $requestData['body'];
         $post->save();
 
         return redirect()->route('posts.show', ['post' => $post]);
@@ -60,11 +59,12 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required |max:255',
             'body' => 'required',
+            'author_name' => 'nullable',
         ]); 
 
         $post->title = $validated['title'];
         $post->body =  $validated['body']; 
-        
+        $post->author_name = $validated['author_name'];
         $post->save();
 
         return redirect()->route('posts.show', ['post' => $post]);

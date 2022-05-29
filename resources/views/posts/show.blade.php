@@ -1,4 +1,5 @@
-
+@extends('dashboard')
+@section('content')
 
 <h1>{{ $post->title}}</h1>
 <p>{{ $post->body }}</p>
@@ -19,17 +20,17 @@
     </ul>
 </div>
 @endif
-  
+
 <br>
 
 <form action="/postcomments/store" method="POST">
   @csrf
 
-  <div>
+  <div class="form-input">
     <input type="text" placeholder="Author name" name="author">
   </div>
 
-  <div>
+  <div class="form-input">
     <textarea name="body" placeholder="Post comment body "></textarea>
   </div>
 
@@ -39,3 +40,5 @@
 </form>
 
 <a href="{{ route('posts.index') }}">Back to index</a>
+
+@endsection
