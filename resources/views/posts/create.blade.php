@@ -15,6 +15,7 @@
   @csrf
 Title: <input type="text" name="title"><br>
 Body: <input type="text" name="body"><br>
+Author : <input type="text" name="author_name" value="{{ old('author_name') }}"><br>
 <input type="submit">
 </form>
 

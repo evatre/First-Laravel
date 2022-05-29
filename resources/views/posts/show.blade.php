@@ -26,11 +26,11 @@
 <form action="/postcomments/store" method="POST">
   @csrf
 
-  <div>
+  <div class="form-input">
     <input type="text" placeholder="Author name" name="author">
   </div>
 
-  <div>
+  <div class="form-input">
     <textarea name="body" placeholder="Post comment body "></textarea>
   </div>
 

@@ -21,6 +21,7 @@ Edit posts
 
 Title: <input type="text" name="title" value="{{ $post->title }}"><br>
 Body: <input type="text" name="body" value="{{ $post->body }}"><br>
+Author : <input type="text" name="author_name" value="{{ $post->author_name }}"><br>
 <input type="submit">
 </form>
 @endsection

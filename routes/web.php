@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/dashboard', [PostController::class, 'index'])
 ->middleware(['auth'])
