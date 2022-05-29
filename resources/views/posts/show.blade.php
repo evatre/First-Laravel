@@ -1,4 +1,5 @@
-
+@extends('dashboard')
+@section('content')
 
 <h1>{{ $post->title}}</h1>
 <p>{{ $post->body }}</p>
@@ -19,7 +20,7 @@
     </ul>
 </div>
 @endif
-  
+
 <br>
 
 <form action="/postcomments/store" method="POST">
@@ -39,3 +40,5 @@
 </form>
 
 <a href="{{ route('posts.index') }}">Back to index</a>
+
+@endsection

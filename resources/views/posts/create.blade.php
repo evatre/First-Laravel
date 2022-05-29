@@ -1,4 +1,5 @@
-
+@extends('dashboard')
+@section('content')
 
 @if ($errors->any())
 <div class="alert alert-danger">
@@ -16,3 +17,5 @@ Title: <input type="text" name="title"><br>
 Body: <input type="text" name="body"><br>
 <input type="submit">
 </form>
+
+@endsection

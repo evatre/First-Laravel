@@ -27,15 +27,12 @@ class PostController extends Controller
             'title' => 'required|unique:posts|max:255',
             'body' => 'required',
         ]);
-
-        //dd($validated);         
+      
         $post = new Post([
             'title' => $validatedData['title'],
             'body' => $validatedData['body'],
         ]);
         
-        //$post->title = $requestData['title'];
-        //$post->body = $requestData['body'];
         $post->save();
 
         return redirect()->route('posts.show', ['post' => $post]);

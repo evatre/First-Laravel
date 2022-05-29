@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PostCommentController;
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,14 @@ use App\Http\Controllers\PostCommentController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', [PostController::class, 'index'])
+->middleware(['auth'])
+->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+//Route::get('/', [IndexController::class, 'index'])
 
 Route::controller(PostController::class)->group(function() {
     Route::get('/posts', 'index')->name('posts.index');
@@ -46,4 +55,3 @@ Route::controller(PostCommentController::class)->group(function()
     Route::post('/postcomments/store', 'store')->name('postcomments.store');
 
 });
-
