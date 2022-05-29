@@ -5,6 +5,7 @@ use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,3 +55,4 @@ Route::controller(PostCommentController::class)->group(function()
     Route::post('/postcomments/store', 'store')->name('postcomments.store');
 
 });
+
